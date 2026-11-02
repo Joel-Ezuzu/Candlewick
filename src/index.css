@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+/* Black and gold. Green and red are only for price moves. */
+:root {
+  --bg: #0b0b0c;
+  --surface: #151517;
+  --surface-2: #1e1e21;
+  --line: #26262b;
+  --fg: #f4f1e8;
+  --muted: #a19c8f;
+  --gold: #e0b84a;
+  --on-gold: #0b0b0c;
+  --up: #34d399;
+  --down: #f87171;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-gold: var(--gold);
+  --color-on-gold: var(--on-gold);
+  --color-up: var(--up);
+  --color-down: var(--down);
+  --font-sans: "Figtree", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Schibsted Grotesk", "Figtree", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-surface font-sans text-fg antialiased;
+    -webkit-tap-highlight-color: transparent;
+  }
+  :focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+  button {
+    cursor: pointer;
+  }
+}
+
+/* Prices line up in columns */
+.num {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
